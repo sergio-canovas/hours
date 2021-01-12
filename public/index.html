@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de entrevistador</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <div class="welcome grid-container">
+        <div class="imagen left">
+            <img src="img/logo.png" alt="GfK">
+            <h2>Portal del entrevistador/a</h2>
+        </div>
+
+        <div id="login" class="body">
+            <h1>Login</h1>
+            <form id="login_f">
+                <p>Usuario:</p>
+                <input type="email" placeholder="Introduce em@il" id="usuario_l" required>
+                <p>Contraseña:</p>
+                <input type="password" placeholder="Introduce tu clave" id="clave_l" required><br><br>
+                <input type="submit" value="Enviar"  id="in_log">
+            </form>
+            <p id="abrir_registro">¿No tienes cuenta? Pincha aquí para acceder al formulario de registro.</p>
+        </div>
+
+        <div id="registro" class="body">
+            <form id="form_registro">
+                <h1>Registro</h1>
+                <p>Introduce tu email:</p>
+                <input type="email" placeholder="email" id="usuario_r" required>
+                <p>Introduce tu contraseña:</p>
+                <input type="password" placeholder="clave" id="clave_r" required>
+                <p>Vuelve a introducir tu contraseña:</p>
+                <input type="password" placeholder="clave" id="clave2_r" required>
+                <p>Introduce tu DNI con letra:</p>
+                <input type="text" placeholder="12345678X" id="dni_r" required>
+                <p>Introduce tu clave de entrevistador:</p>
+                <input type="text" placeholder="usuario" id="confirmit_r" required>
+                <br><br><input type="submit" value="Enviar"  id="in_reg">
+            </form>     
+            <p id="abrir_login">¿Ya tienes cuenta? Pincha aquí para acceder con tus credenciales.</p>
+        </div>
+        <div class="footer">
+            <p id="error_l"></p>
+        </div>
+    </div>  
+
+  
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+        <p>Se está procesando tu solicitud y en breve serás redirigido. Si han pasado más de 10 segundos y sigues viendo esto, <span id="forzar_login">pulsa aquí</span>...</p>
+        </div>
+    
+    </div>
+    
+
+
+
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+<script src="/__/firebase/6.2.0/firebase-database.js"></script>
+<script src="/__/firebase/6.2.0/firebase-auth.js"></script>
+<script src="/__/firebase/6.2.0/firebase-functions.js"></script>
+<script src="/app.js"></script>
+<script src="/users.js"></script>
+
+</body>
+</html>

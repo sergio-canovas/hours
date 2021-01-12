@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del entrevistador</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
+
+
+
+
+    <div style="display:block" id="loading">
+        <h1>Cargando...</h1>
+    </div>
+    
+     
+    <div style="display:none" id="bienvenido">
+        <h1>Bienvenid@</h1>
+        <h1 id="mostrar_fecha"></h1>
+          <!-- Entrada salida -->
+    <div id="fichaje" class="main">
+        <h2>Inicio y fin de la jornada</h2>
+        <p>Registra las horas de tu jornada y tu descanso.</p>
+        <form id="form_fichaje">
+            <p>Hora de inicio de la jornada:</p>
+            <input type="time" name="inicio_j" id="h_jornada_i" required><br>
+            <p>Hora de fin de la jornada:</p>
+            <input type="time" name="fin_j" id="h_jornada_f" required>
+            <p>Hora de inicio del descanso:</p>
+            <input type="time" name="inicio_j" id="h_descanso_i" required><br>
+            <p>Hora de fin del descanso:</p>
+            <input type="time" name="fin_j" id="h_descanso_f" required><br><br>
+            <input type="submit" value="Enviar" id="h_jornada">
+        </form>
+    </div>
+
+     <!-- Horas -->
+    <div id="formulario_main" class="main">
+        <h2>Horas en proyectos</h2>
+        <p>Ingresa aquí las horas dedicadas a los estudios.</p>
+        <p>(puedes repetir el proceso para agregar lo que necesites)</p>
+        <form id="form_horas">
+            <p>Estudio: </p>
+            <input type="text" placeholder="Nombre del estudio" id="estudio" required><br>
+            <p>Código de trabajo: </p>
+            <select id="codigo" required onchange="codigos()">
+                <option value="(1)Cati - Entrevista telefónica">1- Cati - Entrevista telefónica</option>
+                <option value="(2)Supervisión">2- Supervisión</option>
+                <option value="(3)Preparación">3- Preparación</option>
+                <option value="(4)Coordinación">4- Coordinación</option>
+                <option value="(5)Escuchas/auditorías">5- Escuchas/auditorías</option>
+                <option value="(6)Otros">6- Otros</option>
+                <option value="(7)Parón">7- Parón</option>
+                <option value="(8)Recuperación">8- Recuperación</option>
+                <option value="(9)Captación">9- Captación</option>
+                <option value="10">10- Tareas de farma</option>
+                <option value="(11)Causas médicas personales">11- Causas médicas personales</option>
+                <option value="(12)Causas médicas familiares">12- Causas médicas familiares</option>
+                <option value="(13)Deber inexcusable">13- Deber inexcusable</option>
+            </select><br><br>
+            <label for="codigo_f">*Solo para tareas de farma:</label>
+            <select name="codigo_f" id="codigo_f" onchange="codigos()" disabled>
+                <option value="(1farma)Entrevista telefónica">1- Farma - Entrevista telefónica</option>
+                <option value="(2farma)Coincidentes - Recuerdos_llamadas">2- Coincidentes - Recuerdos, llamadas..</option>
+                <option value="(3farma)Coincidentes - Preparar listados">3- Coincidentes - Preparar listados</option>
+                <option value="(4farma)No coincidentes - Captación">4- No coincidentes - Captación</option>
+                <option value="(5farma)No coincidentes - Recuerdos_llamada">5- No coincidentes - Recuerdos, llamada..</option>
+                <option value="(6farma)No coincidentes - Preparar listados">6- No coincidentes - Preparar listados</option>
+                <option value="(7farma)Coordinación. Estudio técnico de campo">7- Coordinación. Estudio técnico de campo</option>
+                <option value="(8farma)Supervisión - Todos los códigos">8- Supervisión - Todos los códigos</option>
+                <option value="(9farma)Piloto - Validaciones">9- Piloto / Validaciones</option>
+                <option value="(10farma)Transcripciones - grabaciones">10- Transcripciones, grabaciones</option>
+                <option value="(11farma)Otros - Varios">11- Otros/Varios (envío incentivos,ot.)</option>
+                <option value="(12farma)Parón">12- Parón (farma)</option>
+                <option value="(13farma)Causas médicas personales">13- Causas médicas personales (farma)</option>
+                <option value="(14farma)Causas médicas familiares 1er grado">14- Causas médicas familiares 1er grado</option>
+                <option value="(15farma)Deber inexusable">15- Deber inexusable(Farma)</option>
+            </select>
+            <p>Entrevistas: </p>
+            <input type="text" placeholder="Número de entrevistas" id="entrevistas" required><br>            
+            <p>Horas empleadas: </p>
+            <input type="time" id="h_entrada" required><br><br>
+            <input type="submit" value="Enviar"  id="in_hour">
+            <br>
+        </form>
+    </div>
+
+            
+    <!-- Tabla -->
+    <div id="historico" class="">
+        <h2>Resumen:</h2>
+        <table id="t_jornada">
+            <tr>
+                <th>Inicio jornada</th>
+                <th>Fin jornada</th>
+                <th>Inicio descanso</th>
+                <th>Fin descanso</th>
+            </tr>
+        </table>
+        <table id="t_historico">
+            <tr><th>Estudio</th>
+                <th>Código</th>
+                <th>Entrevistas</th>
+                <th>Horas empleadas</th>
+            </tr> 
+        </table>
+        <div id="bottom">
+        <p>Si te has equivocado puedes borrar los datos y volver a introducir las horas</p>
+        <input id="borrar_horas" type="submit" value="Borrar">
+        </div>
+        <br>
+        <p>Para salir pulsa en cerrar sesión</p>    
+        <input type="submit" value="Cerrar sesión" id="cerrar_sesion">
+    </div>
+
+
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-database.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-functions.js"></script>
+    <script src="/app.js"></script>
+    <script src="/observer.js"></script>
+    <script src="/librerias/moment.js"></script>
+
+    <script src="/main.js"></script>
+</body>
+</html>

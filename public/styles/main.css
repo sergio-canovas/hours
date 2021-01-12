@@ -1,0 +1,137 @@
+    /* Font */
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Tablas */
+    table {
+        margin-top: 0.5%;
+    }
+    th{
+        background-color: #e55a00;
+        color:white;
+    }
+    th, td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    #historico > table{
+        display: inline-block;
+    }
+
+    /* Grid */
+
+    .header { grid-area: header; }
+    .left { grid-area: left; }
+    .body { grid-area: body; }
+    .right { grid-area: right; }
+    .footer { grid-area: footer; }
+
+    .grid-container {
+        display: grid;
+
+        grid-template-areas:
+          'header header header header header header'
+          'left left body body right right'
+          'footer footer footer footer footer footer';
+        grid-gap: 10px;
+        padding: 1%;
+      }
+
+    /*Login div's*/
+    .imagen{
+        padding-top:25%;
+    }
+    @media screen and (min-width: 505px) {
+        .imagen {
+            padding-left:25%;
+        }
+      }
+    .welcome{
+        margin: auto;
+        width: 100%;
+    }
+    .welcome >div{
+        display:inline-block;
+        margin: 15% 1% 1% 1%;
+    }
+    #login, #registro{
+        padding: 5%;
+        border-left: 1px solid black;
+    }
+    #error_l
+    {
+        text-align: center;
+        margin-top: -10%;
+        color: red;
+    }
+    #registro{
+        display:none;
+    }
+
+    /*Main div's*/
+
+    .main {
+        display:inline-block;
+        margin-right: 2%;
+        padding: 2%;
+        background-color: #f4f4f4;
+        border-radius: 3%;
+        display: none;
+    }
+    /*Formularios*/
+    form > p{
+        text-transform: uppercase;
+        text-decoration-line: underline;
+        text-decoration-color: orange;
+        margin-bottom: -0.6px;
+        font-size: 0.9em;
+    }
+
+    input[type="submit"]{
+        color: white;
+        font-size: 1.1em;
+        border: 0px;
+        padding: 1em;
+        background-color: #e55a00;
+    }
+
+
+    #bienvenido
+    {
+        margin: 1%;
+    }
+    #bienvenido h1{
+        text-align: center;
+    }
+
+    /*Ventanas modales*/
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    #forzar_login{
+        color: blue;
+        cursor: pointer;
+    }
